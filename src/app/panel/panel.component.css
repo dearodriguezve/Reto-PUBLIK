@@ -1,0 +1,29 @@
+.panel {
+  display: flex;
+  flex-direction: row;
+  height: 240px;
+  width: 240px;
+  flex-wrap: wrap;
+  outline: 1px solid #e0e0e0;
+  margin: 20px;
+}
+
+.circle-container {
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+}
+.circle-fill {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #009688;
+  border: 1px solid #e0e0e0;
+}

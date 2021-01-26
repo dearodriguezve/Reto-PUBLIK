@@ -1,0 +1,11 @@
+<div class="panel">
+	<div *ngFor="let row of buffer; index as i">
+		<div *ngFor="let cell of row; index as j">
+			<div class="circle-container">
+				<div style="color: white;" class="{{buffer[j][i]==1 ? 'circle-fill' : 'circle'}}">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
