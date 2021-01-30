@@ -6,10 +6,13 @@
   flex-wrap: wrap;
   outline: 1px solid #e0e0e0;
   margin: 20px;
+  background-color: blue;
 }
 
 .circle-container {
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   width: 30px;
 }
