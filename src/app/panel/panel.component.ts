@@ -10,6 +10,8 @@ export class PanelComponent implements OnInit {
   completeBuffer: any[];
   completeText: any[] = [];
   text: string = "";
+  isPlay = false;
+
   buffer = [
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -26,6 +28,27 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
     this.blankBuffer();
     console.log("size", this.completeBuffer.length);
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async play() {
+    this.isPlay = true;
+    while (this.isPlay) {
+      this.pasar();
+      await this.sleep(100);
+    }
+  }
+
+  pause() {
+    this.isPlay = false;
+  }
+
+  borrar() {
+    this.blankBuffer();
+    this.fillText();
   }
 
   onKeyNum(event) {
@@ -60,11 +83,30 @@ export class PanelComponent implements OnInit {
     console.log(this.completeBuffer);
   }
 
+  getLetter(s) {
+    var letterAux = [
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0]
+    ];
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        letterAux[i][j] = letters[`letter${s}`][i][j];
+      }
+    }
+    return letterAux;
+  }
+
   fillText() {
     this.completeText = [];
     for (let i = 0; i < this.text.length; i++) {
       if (this.text.charCodeAt(i) >= 65 && this.text.charCodeAt(i) <= 90) {
-        this.completeText.push(letters[`letter${this.text[i]}`]);
+        this.completeText.push(this.getLetter(this.text[i]));
       } else {
         this.completeText.push([
           [0, 0, 0, 0, 0, 0, 0, 0],
