@@ -3,10 +3,16 @@
   flex-direction: row;
   height: 240px;
   width: 240px;
+  min-width: 240px;
+  max-width: 240px;
   flex-wrap: wrap;
   outline: 1px solid #e0e0e0;
-  margin: 20px;
-  background-color: blue;
+}
+
+.panel-container {
+  display: flex;
+  background-color: red;
+  flex-direction: row;
 }
 
 .circle-container {

@@ -1,10 +1,15 @@
-<div class="panel">
-	<div *ngFor="let row of buffer; index as i">
-		<div *ngFor="let cell of row; index as j">
-			<div class="circle-container">
-				<div style="color: white;" class="{{buffer[j][i]==1 ? 'circle-fill' : 'circle'}}">
+<input type="number" (keyup.enter)="onKeyNum($event)" value="1" min="1" max="6">
+<input type="text" (keyup.enter)="onKeyText($event)" >
+<div class="panel-container">
+	<div *ngFor="let panelMatrix of completeBuffer; index as k" class="panel">
+		<div *ngFor="let row of panelMatrix; index as i">
+			<div *ngFor="let cell of row; index as j">
+				<div class="circle-container">
+					<div style="color: white;" class="{{panelMatrix[j][i]==1 ? 'circle-fill' : 'circle'}}">
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<button (click)="pasar()" >pasar</button>
