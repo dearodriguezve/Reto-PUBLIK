@@ -35,3 +35,18 @@
   background-color: #009688;
   border: 1px solid #e0e0e0;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 5px;
+}
+
+.inputs-container {
+  display: flex;
+}
+
+button {
+  margin: 5px;
+}

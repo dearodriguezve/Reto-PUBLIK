@@ -1,17 +1,28 @@
-<input type="number" (keyup.enter)="onKeyNum($event)" value="1" min="1" max="6">
-<input type="text" (keyup.enter)="onKeyText($event)" >
-<div class="panel-container">
-	<div *ngFor="let panelMatrix of completeBuffer; index as k" class="panel">
-		<div *ngFor="let row of panelMatrix; index as i">
-			<div *ngFor="let cell of row; index as j">
-				<div class="circle-container">
-					<div style="color: white;" class="{{panelMatrix[j][i]==1 ? 'circle-fill' : 'circle'}}">
+<div class="inputs-container">
+	<div class="input-container">
+		<span>Cantidad de displays</span>
+		<input type="number" (keyup.enter)="onKeyNum($event)" value="1"
+    min="1" max="6">
+		<span>Ingrese el número de displays (mínimo 1, máximo 6)</span>
+	</div>
+	<div class="input-container">
+		<span>Texto a visualizar</span>
+		<input type="text" (keyup.enter)="onKeyText($event)" >
+  </div>
+	</div>
+
+	<div class="panel-container">
+		<div *ngFor="let panelMatrix of completeBuffer; index as k" class="panel">
+			<div *ngFor="let row of panelMatrix; index as i">
+				<div *ngFor="let cell of row; index as j">
+					<div class="circle-container">
+						<div style="color: white;" class="{{panelMatrix[j][i]==1 ? 'circle-fill' : 'circle'}}">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<button (click)="play()" >play</button>
-<button (click)="pause()" >pause</button>
-<button (click)="borrar()" >borrar</button>
+	<button (click)="play()" >Iniciar</button>
+	<button (click)="pause()" >Parar</button>
+	<button (click)="borrar()" >Borrar</button>
